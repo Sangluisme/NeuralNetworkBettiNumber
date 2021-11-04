@@ -26,15 +26,3 @@ class Data:
         return x_, label_
 
 
-# def input_data(filename):
-#     data = np.load(filename)
-#     x_train = data['x_train']
-#     x_label = data['x_label']
-
-#     x_test = data['x_test']
-#     label_test = data['label_test']
-
-#     data_ = Data(x_train, x_label, x_test, label_test)
-
-#     return data_
-
