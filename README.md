@@ -25,21 +25,21 @@ you can use ```python3 main_polynomial_model_mnist.py -h``` to see in detail.
 
 
 ## Independences
--python >=3.0
+- python >=3.0
 
--Tensorflow 2.5 (CPU is enough)
+- Tensorflow 2.5 (CPU is enough)
 
--[GUDHI](https://gudhi.inria.fr/)
+- [GUDHI](https://gudhi.inria.fr/)
 
--matplotlib
+- matplotlib
 
--numpy
+- numpy
 
 
 ## citation
 please cite the paper if you are using the code or modify based on our code and also cite [GUDHI](https://gudhi.inria.fr/).
 
->@misc{yang2021dive,
+> @misc{yang2021dive,
 >
 >      title={Dive into Layers: Neural Network Capacity Bounding using Algebraic Geometry}, 
 >
@@ -53,4 +53,4 @@ please cite the paper if you are using the code or modify based on our code and 
 >
 >      primaryClass={cs.LG}
 >
->}
+> }
