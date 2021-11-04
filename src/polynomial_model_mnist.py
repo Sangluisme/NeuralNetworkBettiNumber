@@ -1,3 +1,4 @@
+import argparse
 from numpy.core.numeric import Infinity
 import tensorflow as tf
 from tensorflow.python.ops.gen_math_ops import minimum
@@ -228,8 +229,20 @@ def get_Betti_number(data, max_length):
 
 if __name__ == "__main__":
 
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--start_node', metavar='int', type=int, help="start node number of the network, default is 2", default=2)
+    parser.add_argument('--last_node', metavar='int', type=int, help="maximum node number of the network, default is 64", default=64)
+    parser.add_argument('--step', metavar='int', type=int, help="step size of node number, default is 2", default=2)
+    parser.add_argument('--savepath', type=str, help="save path of the results, default is ../results/ ", default='../results/')
+    args = parser.parse_args()
+
     data = input_data.read_data_sets('../data_set', one_hot=True)
-    savepath = '../results/'
+    
+    savepath = args.savepath
+    start_node = args.start_node
+    final_node = args.last_node
+    step = args.step
+    node_num = len(range(start_node, final_node, step))
 
     Betti_input = []
     Betti0_input = []
@@ -253,11 +266,11 @@ if __name__ == "__main__":
     np.savetxt(savepath + "Betti_input.txt", Betti_input.T)
 
     accuracy = []
-    b2 = np.zeros([30,10])
-    b1 = np.zeros([30,10])
-    b3 = np.zeros([30,10])
+    b2 = np.zeros([node_num,10])
+    b1 = np.zeros([node_num,10])
+    b3 = np.zeros([node_num,10])
     count = 0
-    for node in range(2, 32, 1):
+    for node in range(start_node, final_node, step):
         app = Train(node, data, savepath)
         app.train()
         acc = app.calculate_accuracy()
@@ -272,13 +285,6 @@ if __name__ == "__main__":
             Betti2[class_num] = b20
             Betti3[class_num] = b30
 
-
-        # del app
-
-        # Betti = np.asarray(Betti)
-       
-        # Betti1 = np.asarray(Betti1)
-        # Betti = np.vstack([Betti1, Betti])
         b1[count,:] = Betti1
         b2[count,:] = Betti2
         b3[count,:] = Betti3
@@ -298,13 +304,4 @@ if __name__ == "__main__":
     accuracy = np.asarray(accuracy)
     filename = savepath + "Betti_accurarcy.txt"
     np.savetxt(filename, accuracy.T)
-    # class_num = 7
-    # node = 127
-
-    # app = Train(node, data)
-    # app.train()
-    # acc = app.calculate_accuracy()
-    # Betti1_, Betti0 = app.calculate_layer_Betti_number(class_num)
-    # print("Data: the input data has Betti 0 %d. " % Betti0)
-    # print("Data: the input data has Betti 1 %d. " % Betti1_)
-    # print("Data: the input data has accuracy %f. " % acc)
+   
