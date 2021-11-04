@@ -37,13 +37,20 @@ you can use ```python3 main_polynomial_model_mnist.py -h``` to see in detail.
 
 
 ## citation
-please cite the paper if you are using the code and also cite [GUDHI](https://gudhi.inria.fr/).
+please cite the paper if you are using the code or modify based on our code and also cite [GUDHI](https://gudhi.inria.fr/).
 
 >@misc{yang2021dive,
+>
 >      title={Dive into Layers: Neural Network Capacity Bounding using Algebraic Geometry}, 
+>
 >      author={Ji Yang and Lu Sang and Daniel Cremers},
+>
 >      year={2021},
+>
 >      eprint={2109.01461},
+>
 >      archivePrefix={arXiv},
+>
 >      primaryClass={cs.LG}
+>
 >}
