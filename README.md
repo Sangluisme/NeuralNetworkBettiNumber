@@ -41,16 +41,16 @@ please cite the paper if you are using the code or modify based on our code and 
 
 > @misc{yang2021dive,
 >
->      title={Dive into Layers: Neural Network Capacity Bounding using Algebraic Geometry}, 
+> title={Dive into Layers: Neural Network Capacity Bounding using Algebraic Geometry}, 
 >
->      author={Ji Yang and Lu Sang and Daniel Cremers},
+> author={Ji Yang and Lu Sang and Daniel Cremers},
 >
->      year={2021},
+> year={2021},
 >
->      eprint={2109.01461},
+> eprint={2109.01461},
 >
->      archivePrefix={arXiv},
+> archivePrefix={arXiv},
 >
->      primaryClass={cs.LG}
+> primaryClass={cs.LG}
 >
 > }
